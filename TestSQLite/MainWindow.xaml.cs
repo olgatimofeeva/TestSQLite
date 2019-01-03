@@ -59,6 +59,28 @@ namespace TestSQLite
             }
         }
 
+        public void Button_partOfSpeech(object sender, RoutedEventArgs e)
+        {
+            PartOfSpeechWindow partOfSpeechWindow = new PartOfSpeechWindow();
+            partOfSpeechWindow.Show();
+        }
+        public void Button_childrenAge(object sender, RoutedEventArgs e)
+        {
+            ChildrenAgeWindow childrenAgeWindow = new ChildrenAgeWindow();
+            childrenAgeWindow.Show();
+        }
+        public void Button_specification(object sender, RoutedEventArgs e)
+        {
+            SpecificationWindow specificationWindow = new SpecificationWindow();
+            specificationWindow.Show();
+        }
+
+        public void Button_search(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
         }

@@ -26,3 +26,9 @@ C:\Users\Ольга\Documents\GitHub\TestSQLite\TestSQLite\obj\Debug\TestSQLite.
 C:\Users\Ольга\Documents\GitHub\TestSQLite\TestSQLite\bin\Debug\WordsDB.db
 C:\Users\Ольга\Documents\GitHub\TestSQLite\TestSQLite\obj\Debug\WordWindow.g.cs
 C:\Users\Ольга\Documents\GitHub\TestSQLite\TestSQLite\obj\Debug\WordWindow.baml
+C:\Users\Ольга\Documents\GitHub\TestSQLite\TestSQLite\obj\Debug\PartOfSpeechWindow.g.cs
+C:\Users\Ольга\Documents\GitHub\TestSQLite\TestSQLite\obj\Debug\PartOfSpeechWindow.baml
+C:\Users\Ольга\Documents\GitHub\TestSQLite\TestSQLite\obj\Debug\ChildrenAgeWindow.g.cs
+C:\Users\Ольга\Documents\GitHub\TestSQLite\TestSQLite\obj\Debug\ChildrenAgeWindow.baml
+C:\Users\Ольга\Documents\GitHub\TestSQLite\TestSQLite\obj\Debug\SpecificationWindow.g.cs
+C:\Users\Ольга\Documents\GitHub\TestSQLite\TestSQLite\obj\Debug\SpecificationWindow.baml

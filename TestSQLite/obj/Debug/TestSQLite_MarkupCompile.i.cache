@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Ольга\Documents\GitHub\TestSQLite\TestSQLite\App.xaml
-2-501452096
+51498803205
 
-12-1924281326
+15-2064025209
 19111808810
-MainWindow.xaml;WordWindow.xaml;
+ChildrenAgeWindow.xaml;MainWindow.xaml;PartOfSpeechWindow.xaml;SpecificationWindow.xaml;WordWindow.xaml;
 
 False
 
