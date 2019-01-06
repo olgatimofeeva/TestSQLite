@@ -31,6 +31,13 @@ namespace TestSQLite
             }
         }
 
+        private void searchText_Click(object sender, RoutedEventArgs e)
+        {
+            searchText.Clear();
+
+        }
+
+
         private void Edit_Click(object sender, RoutedEventArgs e)
         {
             // если ни одного объекта не выделено, выходим

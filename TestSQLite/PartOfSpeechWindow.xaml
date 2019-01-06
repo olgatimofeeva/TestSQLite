@@ -14,12 +14,9 @@
         </Grid.RowDefinitions>
         <ToolBar Height="35" VerticalAlignment="Top">
             <Separator />
-            <Button Name ="MainWindow" Content="Основная таблица" Click="Button_MainWindow" Margin="10,0,10,0" />
+            <Button Name ="MainWindow" Content="Назад" Click="Button_MainWindow" Margin="10,0,10,0" />
             <Separator />
-            <Button Name ="childrenAge" Content="Таблица возрастов детей" Click="Button_childrenAge" Margin="10,0,10,0" />
-            <Separator />
-            <Button Name ="specification" Content="Таблица с разделами слов" Click="Button_specification" Margin="10,0,10,0" />
-            <TextBox Foreground="LightGray" Width="100" Margin="10,0,10,0" >Поиск слова...</TextBox>
+            <TextBox Name="searchText" Foreground="LightGray" Width="100" Margin="10,0,10,0" GotFocus="searchText_Click" >Поиск слова...</TextBox>
             <Button Name ="search" Content="Поиск" Click="Button_search" Margin="10,0,10,0" />
         </ToolBar>
         <ListBox x:Name="phonesList" ItemsSource="{Binding}" Grid.Row="1">

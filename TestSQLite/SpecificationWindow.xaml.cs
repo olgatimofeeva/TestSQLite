@@ -27,15 +27,11 @@ namespace TestSQLite
         //кнопки сверху
         public void Button_MainWindow(object sender, RoutedEventArgs e)
         {
-            MainWindow mainWindow = new MainWindow();
-            mainWindow.Show();
+            this.Close();
         }
-        public void Button_childrenAge(object sender, RoutedEventArgs e)
+        private void searchText_Click(object sender, RoutedEventArgs e)
         {
-
-        }
-        public void Button_partOfSpeech(object sender, RoutedEventArgs e)
-        {
+            searchText.Clear();
 
         }
 
