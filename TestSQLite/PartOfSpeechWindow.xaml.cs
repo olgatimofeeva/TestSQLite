@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Data.Entity;
 
 namespace TestSQLite
 {
@@ -19,9 +20,14 @@ namespace TestSQLite
     /// </summary>
     public partial class PartOfSpeechWindow : Window
     {
+        ApplicationContext db;
         public PartOfSpeechWindow()
         {
             InitializeComponent();
+
+            db = new ApplicationContext();
+            db.PartOfSpeeches.Load();
+            this.DataContext = db.PartOfSpeeches.Local.ToBindingList();
         }
 
         //кнопки сверху

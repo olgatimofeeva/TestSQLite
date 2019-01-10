@@ -22,7 +22,7 @@
             <TextBox Name="searchText" Foreground="LightGray" Width="100" Margin="10,0,10,0" GotFocus="searchText_Click" >Поиск слова...</TextBox>
             <Button Name ="search" Content="Поиск" Click="Button_search" Margin="10,0,10,0" />
         </ToolBar>
-        <ListBox x:Name="phonesList" ItemsSource="{Binding}" Grid.Row="1">
+        <ListBox x:Name="List" ItemsSource="{Binding}" Grid.Row="1">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>

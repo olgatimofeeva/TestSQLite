@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Data.Entity;
+using TestSQLite.Tables;
 
 namespace TestSQLite
 {
@@ -19,9 +21,13 @@ namespace TestSQLite
     /// </summary>
     public partial class SpecificationWindow : Window
     {
+        ApplicationContext db;
         public SpecificationWindow()
         {
             InitializeComponent();
+            db = new ApplicationContext();
+            db.Specifications.Load();
+            this.DataContext = db.Specifications.Local.ToBindingList();
         }
 
         //кнопки сверху

@@ -1,5 +1,6 @@
 ﻿using System.Data.Entity;
 using System.Windows;
+using TestSQLite.Tables;
 
 
 namespace TestSQLite
@@ -15,8 +16,9 @@ namespace TestSQLite
             InitializeComponent();
             db = new ApplicationContext();
             db.Words.Load();
+            db.Specifications.Load();
             this.DataContext = db.Words.Local.ToBindingList();
-
+           // this.DataContext = db.Specifications.Local.ToBindingList();
 
         }
 
@@ -41,9 +43,9 @@ namespace TestSQLite
         private void Edit_Click(object sender, RoutedEventArgs e)
         {
             // если ни одного объекта не выделено, выходим
-            if (phonesList.SelectedItem == null) return;
+            if (List.SelectedItem == null) return;
             // получаем выделенный объект
-            Words word = phonesList.SelectedItem as Words;
+            Words word = List.SelectedItem as Words;
 
             WordWindow wordWindow = new WordWindow(new Words
             {
