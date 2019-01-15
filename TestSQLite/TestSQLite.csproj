@@ -86,7 +86,7 @@
     <Compile Include="SpecificationWindow.xaml.cs">
       <DependentUpon>SpecificationWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Tables\Words.cs" />
+    <Compile Include="Tables\Word.cs" />
     <Compile Include="WordWindow.xaml.cs">
       <DependentUpon>WordWindow.xaml</DependentUpon>
     </Compile>

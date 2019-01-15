@@ -23,7 +23,7 @@
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
-                        <TextBlock Text="{Binding specificationValue}" FontSize="13" />
+                        <TextBlock Text="{Binding SpecificationValue}" FontSize="13" />
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>

@@ -8,14 +8,14 @@ namespace TestSQLite.Tables
 {
     public class PartOfSpeech: Tables.Entity
     {
-        private string PartOfSpeechValue;
+        private string partOfSpeechValue;
 
-        public string partOfSpeechValue
+        public string PartOfSpeechValue
         {
-            get { return PartOfSpeechValue; }
+            get { return partOfSpeechValue; }
             set
             {
-                PartOfSpeechValue = value;
+                partOfSpeechValue = value;
                 OnPropertyChanged("PartOfSpeechValue");
             }
         }

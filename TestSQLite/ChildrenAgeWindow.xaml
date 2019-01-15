@@ -23,7 +23,7 @@
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
-                        <TextBlock Text="{Binding childrenAgeValue}" FontSize="13" />
+                        <TextBlock Text="{Binding ChildrenAgeValue}" FontSize="13" />
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>

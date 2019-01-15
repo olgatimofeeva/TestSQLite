@@ -20,8 +20,8 @@ namespace TestSQLite
     /// </summary>
     public partial class WordWindow : Window
     {
-        public Words Word { get; private set; }
-        public WordWindow(Words p)
+        public Word Word { get; private set; }
+        public WordWindow(Word p)
         {
             InitializeComponent();
 

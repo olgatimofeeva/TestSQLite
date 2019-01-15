@@ -14,7 +14,7 @@ namespace TestSQLite
         {
         }
 
-        public DbSet<Words> Words { get; set; }
+        public DbSet<Word> Words { get; set; }
 
         public DbSet<Specification> Specifications { get; set; }
 

@@ -23,7 +23,7 @@
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
-                        <TextBlock Text="{Binding partOfSpeechValue}" FontSize="12" />
+                        <TextBlock Text="{Binding PartOfSpeechValue}" FontSize="12" />
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>

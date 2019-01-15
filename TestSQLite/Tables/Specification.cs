@@ -9,14 +9,14 @@ namespace TestSQLite.Tables
     public class Specification: Tables.Entity
     {
 
-        private string SpecificationValue; 
+        private string specificationValue; 
 
-        public string specificationValue
+        public string SpecificationValue
         {
-            get { return SpecificationValue; }
+            get { return specificationValue; }
             set
             {
-                SpecificationValue = value;
+                specificationValue = value;
                 OnPropertyChanged("SpecificationValue");
             }
         }

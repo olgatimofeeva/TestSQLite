@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using TestSQLite.Tables;
+using System.Data.Entity;
 
 namespace TestSQLite
 {
@@ -19,9 +21,14 @@ namespace TestSQLite
     /// </summary>
     public partial class ChildrenAgeWindow : Window
     {
+        ApplicationContext db;
         public ChildrenAgeWindow()
         {
             InitializeComponent();
+
+            db = new ApplicationContext();
+            db.ChildrenAges.Load();
+            this.DataContext = db.ChildrenAges.Local.ToBindingList();
         }
 
 

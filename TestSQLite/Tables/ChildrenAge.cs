@@ -9,14 +9,14 @@ namespace TestSQLite.Tables
 {
     public class ChildrenAge: Entity
     {
-        private string ChildrenAgeValue;
-
-        public string childrenAgeValue
+        private string childrenAgeValue;
+        
+        public string ChildrenAgeValue
         {
-            get { return ChildrenAgeValue; }
+            get { return childrenAgeValue; }
             set
             {
-                ChildrenAgeValue = value;
+                childrenAgeValue = value;
                 OnPropertyChanged("ChildrenAgeValue");
             }
         }
