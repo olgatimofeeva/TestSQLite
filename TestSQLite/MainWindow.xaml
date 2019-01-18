@@ -27,9 +27,9 @@
                 <DataTemplate>
                     <StackPanel>
                         <TextBlock Text="{Binding wordValue}" FontSize="16" />
-                        <TextBlock Text="{Binding PartOfSpeech.PartOfSpeechValue}" FontSize="13"/>
-                        <TextBlock Text="{Binding Specification.SpecificationValue}" FontSize="13" />
-                        <TextBlock Text="{Binding ChildrenAge.ChildrenAgeValue}" FontSize="13"/>
+                        <TextBlock Text="{Binding partOfSpeech.PartOfSpeechValue}" FontSize="13"/>
+                        <TextBlock Text="{Binding specification.SpecificationValue}" FontSize="13" />
+                        <TextBlock Text="{Binding childrenAge.ChildrenAgeValue}" FontSize="13"/>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
