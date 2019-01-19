@@ -11,21 +11,24 @@
             <RowDefinition />
             <RowDefinition />
             <RowDefinition />
+            <RowDefinition/>
             <RowDefinition />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="100" />
+            <ColumnDefinition Width="120" />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <TextBlock Text="Слово" />
         <TextBlock Text="Часть речи" Grid.Row="1" />
         <TextBlock Text="Спецификация" Grid.Row="2" />
+        <TextBlock Text="Диапозон возрастов" Grid.Row="3" />
 
-        <TextBox Text="{Binding word}" Grid.Column="1" />
-        <TextBox Text="{Binding partofspeech}" Grid.Column="1" Grid.Row="1" />
-        <TextBox Text="{Binding specification}" Grid.Column="1" Grid.Row="2" />
+        <TextBox Text="{Binding wordValue}" Grid.Column="1" />
+        <ComboBox Name="PartOfSpeechInput" Grid.Column="1" Grid.Row="1" SelectionChanged="PartOfSpeechInput_SelectionChanged" />
+        <ComboBox Name="SpecificationInput" Grid.Column="1" Grid.Row="2" SelectionChanged="SpecificationInput_SelectionChanged" />
+        <ComboBox Name="ChildrenAgeInput" Grid.Column="1" Grid.Row="3" SelectionChanged="ChildrenAgeInput_SelectionChanged" />
 
-        <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Grid.Row="3" Grid.Column="1">
+        <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Grid.Row="4" Grid.Column="1">
             <Button IsDefault="True" Click="Accept_Click" MinWidth="60" Margin="5">OK</Button>
             <Button IsCancel="True" MinWidth="60" Margin="5">Отмена</Button>
         </StackPanel>

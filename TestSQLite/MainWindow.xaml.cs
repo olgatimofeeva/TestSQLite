@@ -21,12 +21,14 @@ namespace TestSQLite
             db.PartOfSpeeches.Load();
             this.DataContext = db.Words.Local.ToBindingList();
             //this.DataContext = db.Specifications.Local.ToBindingList();
+            string[] phones = { "iPhone 6S", "Lumia 950", "Nexus 5X", "LG G4", "Xiaomi MI5", "HTC A9" };
 
         }
 
+
         private void Add_Click(object sender, RoutedEventArgs e)
         {
-            WordWindow wordWindow = new WordWindow(new Word());
+            WordWindow wordWindow = new WordWindow(new Word(),db);
             if (wordWindow.ShowDialog() == true)
             {
                 Word words = wordWindow.Word;
@@ -56,7 +58,7 @@ namespace TestSQLite
                 specification = word.specification,
                 childrenAge = word.childrenAge,
                 partOfSpeech = word.partOfSpeech
-            });
+            }, db);
             if (wordWindow.ShowDialog() == true)
             {
                word = db.Words.Find(wordWindow.Word.Id);
@@ -68,6 +70,7 @@ namespace TestSQLite
                     word.partOfSpeech = wordWindow.Word.partOfSpeech;
                     db.Entry(word).State = EntityState.Modified;
                     db.SaveChanges();
+                    
                 }
             }
         }
@@ -96,6 +99,10 @@ namespace TestSQLite
 
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
+            if (List.SelectedItem == null) return;
+            // получаем выделенный объект
+            Word word = List.SelectedItem as Word;
+            db.Words.Remove(word);
         }
 
         private void Save_Click(object sender, RoutedEventArgs e)
