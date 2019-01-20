@@ -21,7 +21,7 @@ namespace TestSQLite
     /// </summary>
     public partial class SpecificationWindow : Window
     {
-        ApplicationContext db;
+        public ApplicationContext db;
         public SpecificationWindow()
         {
             InitializeComponent();
@@ -62,6 +62,7 @@ namespace TestSQLite
             Specification Spec = List.SelectedItem as Specification;
             Spec.SpecificationValue = TBSpecification.Text;
             db.Entry(Spec).State = EntityState.Modified;
+            db.SaveChanges();
         }
 
         private void Delete_Click(object sender, RoutedEventArgs e)
@@ -70,18 +71,20 @@ namespace TestSQLite
             // получаем выделенный объект
             Specification Spec = List.SelectedItem as Specification;
             db.Specifications.Remove(Spec);
+            db.SaveChanges();
         }
 
-        private void Save_Click(object sender, RoutedEventArgs e)
-        {
-            db.SaveChanges();
-            this.Close();
-        }
+
 
         private void List_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (List.SelectedItem == null) return;
             TBSpecification.Text = (List.SelectedItem as Specification).SpecificationValue;
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            this.DialogResult = true;
         }
     }
 }

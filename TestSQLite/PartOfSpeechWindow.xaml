@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TestSQLite"
         mc:Ignorable="d"
-        Title="PartOfSpeechWindow" Height="450" Width="800">
+        Title="PartOfSpeechWindow" Height="450" Width="800" Closing="Window_Closing">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
@@ -33,7 +33,6 @@
             <Button Content="Добавить" Margin="10" Click="Add_Click" />
             <Button Content="Изменить" Margin="10" Click="Edit_Click"  />
             <Button Content="Удалить" Margin="10" Click="Delete_Click"  />
-            <Button Content="Сохранить" Margin="10" Click="Save_Click"  />
         </StackPanel>
     </Grid>
 </Window>

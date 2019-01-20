@@ -39,16 +39,19 @@ namespace TestSQLite
             PartOfSpeechInput.ItemsSource = db.PartOfSpeeches.Local.ToBindingList();
             PartOfSpeechInput.DisplayMemberPath = "PartOfSpeechValue";
             PartOfSpeechInput.SelectedValuePath = "Id";
+            PartOfSpeechInput.Items.Refresh();
 
             //combobox со специфиацией
             SpecificationInput.ItemsSource = db.Specifications.Local.ToBindingList();
             SpecificationInput.DisplayMemberPath = "SpecificationValue";
             SpecificationInput.SelectedValuePath = "Id";
+            SpecificationInput.Items.Refresh();
 
             //combobox с возрастами
             ChildrenAgeInput.ItemsSource = db.ChildrenAges.Local.ToBindingList();
             ChildrenAgeInput.DisplayMemberPath = "ChildrenAgeValue";
             ChildrenAgeInput.SelectedValuePath = "Id";
+            ChildrenAgeInput.Items.Refresh();
         }
 
         private void Accept_Click(object sender, RoutedEventArgs e)
@@ -58,16 +61,16 @@ namespace TestSQLite
 
         private void PartOfSpeechInput_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Word.partOfSpeechId = PartOfSpeechInput.SelectedIndex + 1;
+            Word.partOfSpeechId = (int)PartOfSpeechInput.SelectedValue;
         }
 
         private void SpecificationInput_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Word.specificationId = SpecificationInput.SelectedIndex + 1;
+            Word.specificationId = (int)SpecificationInput.SelectedValue ;
         }
         private void ChildrenAgeInput_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Word.childrenAgeId = ChildrenAgeInput.SelectedIndex + 1;
+            Word.childrenAgeId = (int)ChildrenAgeInput.SelectedValue;
         }
 
 
