@@ -21,7 +21,8 @@ namespace TestSQLite
     /// </summary>
     public partial class ChildrenAgeWindow : Window
     {
-        ApplicationContext db;
+        public ApplicationContext db;
+        public bool flag = false;
         public ChildrenAgeWindow()
         {
             InitializeComponent();
@@ -65,6 +66,7 @@ namespace TestSQLite
             ChildrenAge ChAge = List.SelectedItem as ChildrenAge;
             ChAge.ChildrenAgeValue = TBChildrenAge.Text;
             db.Entry(ChAge).State = EntityState.Modified;
+            db.SaveChanges();
         }
 
         private void Delete_Click(object sender, RoutedEventArgs e)
@@ -73,18 +75,21 @@ namespace TestSQLite
             // получаем выделенный объект
             ChildrenAge ChAge = List.SelectedItem as ChildrenAge;
             db.ChildrenAges.Remove(ChAge);
+            db.SaveChanges();
+            this.DialogResult = true;
         }
 
-        private void Save_Click(object sender, RoutedEventArgs e)
-        {
-            db.SaveChanges();
-            this.Close();
-        }
+
 
         private void List_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (List.SelectedItem == null) return;
             TBChildrenAge.Text = (List.SelectedItem as ChildrenAge).ChildrenAgeValue;
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            this.DialogResult = true;
         }
     }
 }

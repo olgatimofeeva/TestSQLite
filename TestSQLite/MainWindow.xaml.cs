@@ -29,16 +29,15 @@ namespace TestSQLite
             WordWindow wordWindow = new WordWindow(new Word(),db);
             if (wordWindow.ShowDialog() == true)
             {
-                Word words = wordWindow.Word;
+               Word words = wordWindow.Word;
                db.Words.Add(words);
-                db.SaveChanges();
+               db.SaveChanges();
             }
         }
 
         private void searchText_Click(object sender, RoutedEventArgs e)
         {
             searchText.Clear();
-
         }
 
 
@@ -66,28 +65,35 @@ namespace TestSQLite
                     word.specificationId = wordWindow.Word.specificationId;
                     word.childrenAgeId = wordWindow.Word.childrenAgeId;
                     word.partOfSpeechId = wordWindow.Word.partOfSpeechId;
-                    db.Entry(word).State = EntityState.Modified;
-                    db.SaveChanges();
-                    
+                    db.Entry(word).State = EntityState.Modified;                
                 }
                 List.Items.Refresh();
+                db.SaveChanges();
             }
         }
 
         public void Button_partOfSpeech(object sender, RoutedEventArgs e)
         {
             PartOfSpeechWindow partOfSpeechWindow = new PartOfSpeechWindow();
-            partOfSpeechWindow.Show();
+            // partOfSpeechWindow.Show();
+            if (partOfSpeechWindow.ShowDialog() == true)
+                //db.SaveChanges();
+                db.PartOfSpeeches = partOfSpeechWindow.db.PartOfSpeeches;
+
         }
         public void Button_childrenAge(object sender, RoutedEventArgs e)
         {
             ChildrenAgeWindow childrenAgeWindow = new ChildrenAgeWindow();
-            childrenAgeWindow.Show();
+            //childrenAgeWindow.Show();
+            if (childrenAgeWindow.ShowDialog() == true)
+                db.ChildrenAges = childrenAgeWindow.db.ChildrenAges;
         }
         public void Button_specification(object sender, RoutedEventArgs e)
         {
             SpecificationWindow specificationWindow = new SpecificationWindow();
-            specificationWindow.Show();
+           // specificationWindow.Show();
+            if (specificationWindow.ShowDialog() == true)
+                db.Specifications = specificationWindow.db.Specifications;
         }
 
         public void Button_search(object sender, RoutedEventArgs e)
@@ -102,6 +108,7 @@ namespace TestSQLite
             // получаем выделенный объект
             Word word = List.SelectedItem as Word;
             db.Words.Remove(word);
+            db.SaveChanges();
         }
 
         private void Save_Click(object sender, RoutedEventArgs e)

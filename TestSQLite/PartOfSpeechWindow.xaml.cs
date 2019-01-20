@@ -21,7 +21,7 @@ namespace TestSQLite
     /// </summary>
     public partial class PartOfSpeechWindow : Window
     {
-        ApplicationContext db;
+        public ApplicationContext db;
         public PartOfSpeechWindow()
         {
             InitializeComponent();
@@ -44,7 +44,7 @@ namespace TestSQLite
 
         public void Button_search(object sender, RoutedEventArgs e)
         {
-
+            
         }
 
         //конпки снизу
@@ -64,6 +64,7 @@ namespace TestSQLite
             PartOfSpeech PoS = List.SelectedItem as PartOfSpeech;
             PoS.PartOfSpeechValue = TBPartOfSpeech.Text;
             db.Entry(PoS).State = EntityState.Modified;
+            db.SaveChanges();
         }
 
         private void Delete_Click(object sender, RoutedEventArgs e)
@@ -72,19 +73,21 @@ namespace TestSQLite
             // получаем выделенный объект
             PartOfSpeech PoS = List.SelectedItem as PartOfSpeech;
             db.PartOfSpeeches.Remove(PoS);
+            db.SaveChanges();
         }
 
-        private void Save_Click(object sender, RoutedEventArgs e)
-        {
-            db.SaveChanges();
-            this.Close();
-        }
+
 
 
         private void List_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (List.SelectedItem == null) return;
             TBPartOfSpeech.Text = (List.SelectedItem as PartOfSpeech).PartOfSpeechValue;
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            this.DialogResult = true;
         }
     }
 }
