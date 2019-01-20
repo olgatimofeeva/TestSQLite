@@ -53,7 +53,7 @@ namespace TestSQLite
 
         private void Accept_Click(object sender, RoutedEventArgs e)
         {
-            this.DialogResult = true;
+            this.DialogResult = true;            
         }
 
         private void PartOfSpeechInput_SelectionChanged(object sender, SelectionChangedEventArgs e)

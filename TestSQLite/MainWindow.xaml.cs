@@ -65,13 +65,14 @@ namespace TestSQLite
                 if (word != null)
                 {
                     word.wordValue = wordWindow.Word.wordValue;
-                    word.specification = wordWindow.Word.specification;
-                    word.childrenAge = wordWindow.Word.childrenAge;
-                    word.partOfSpeech = wordWindow.Word.partOfSpeech;
+                    word.specificationId = wordWindow.Word.specificationId;
+                    word.childrenAgeId = wordWindow.Word.childrenAgeId;
+                    word.partOfSpeechId = wordWindow.Word.partOfSpeechId;
                     db.Entry(word).State = EntityState.Modified;
                     db.SaveChanges();
                     
                 }
+                List.Items.Refresh();
             }
         }
 
@@ -107,6 +108,7 @@ namespace TestSQLite
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
+          //  List.Items.Refresh();
         }
     }
 }
