@@ -21,8 +21,6 @@ namespace TestSQLite
             db.PartOfSpeeches.Load();
             this.DataContext = db.Words.Local.ToBindingList();
             //this.DataContext = db.Specifications.Local.ToBindingList();
-            string[] phones = { "iPhone 6S", "Lumia 950", "Nexus 5X", "LG G4", "Xiaomi MI5", "HTC A9" };
-
         }
 
 
