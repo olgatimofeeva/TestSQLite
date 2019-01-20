@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Data.Entity;
+using TestSQLite.Tables;
 
 namespace TestSQLite
 {
@@ -49,21 +50,41 @@ namespace TestSQLite
         //конпки снизу
         private void Add_Click(object sender, RoutedEventArgs e)
         {
-  
+            PartOfSpeech PoS= new PartOfSpeech();
+            PoS.PartOfSpeechValue= TBPartOfSpeech.Text;
+            db.PartOfSpeeches.Add(PoS);
+            db.SaveChanges();
+            
         }
 
         private void Edit_Click(object sender, RoutedEventArgs e)
         {
+            if (List.SelectedItem == null) return;
+            // получаем выделенный объект
+            PartOfSpeech PoS = List.SelectedItem as PartOfSpeech;
+            PoS.PartOfSpeechValue = TBPartOfSpeech.Text;
+            db.Entry(PoS).State = EntityState.Modified;
         }
 
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
+            if (List.SelectedItem == null) return;
+            // получаем выделенный объект
+            PartOfSpeech PoS = List.SelectedItem as PartOfSpeech;
+            db.PartOfSpeeches.Remove(PoS);
         }
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
+            db.SaveChanges();
+            this.Close();
         }
 
 
+        private void List_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (List.SelectedItem == null) return;
+            TBPartOfSpeech.Text = (List.SelectedItem as PartOfSpeech).PartOfSpeechValue;
+        }
     }
 }

@@ -52,19 +52,39 @@ namespace TestSQLite
         //конпки снизу
         private void Add_Click(object sender, RoutedEventArgs e)
         {
-
+            ChildrenAge ChAge = new ChildrenAge();
+            ChAge.ChildrenAgeValue = TBChildrenAge.Text;
+            db.ChildrenAges.Add(ChAge);
+            db.SaveChanges();
         }
 
         private void Edit_Click(object sender, RoutedEventArgs e)
         {
+            if (List.SelectedItem == null) return;
+            // получаем выделенный объект
+            ChildrenAge ChAge = List.SelectedItem as ChildrenAge;
+            ChAge.ChildrenAgeValue = TBChildrenAge.Text;
+            db.Entry(ChAge).State = EntityState.Modified;
         }
 
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
+            if (List.SelectedItem == null) return;
+            // получаем выделенный объект
+            ChildrenAge ChAge = List.SelectedItem as ChildrenAge;
+            db.ChildrenAges.Remove(ChAge);
         }
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
+            db.SaveChanges();
+            this.Close();
+        }
+
+        private void List_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (List.SelectedItem == null) return;
+            TBChildrenAge.Text = (List.SelectedItem as ChildrenAge).ChildrenAgeValue;
         }
     }
 }

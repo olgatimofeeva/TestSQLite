@@ -49,19 +49,39 @@ namespace TestSQLite
         //конпки снизу
         private void Add_Click(object sender, RoutedEventArgs e)
         {
-
+            Specification Spec = new Specification();
+            Spec.SpecificationValue = TBSpecification.Text;
+            db.Specifications.Add(Spec);
+            db.SaveChanges();
         }
 
         private void Edit_Click(object sender, RoutedEventArgs e)
         {
+            if (List.SelectedItem == null) return;
+            // получаем выделенный объект
+            Specification Spec = List.SelectedItem as Specification;
+            Spec.SpecificationValue = TBSpecification.Text;
+            db.Entry(Spec).State = EntityState.Modified;
         }
 
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
+            if (List.SelectedItem == null) return;
+            // получаем выделенный объект
+            Specification Spec = List.SelectedItem as Specification;
+            db.Specifications.Remove(Spec);
         }
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
+            db.SaveChanges();
+            this.Close();
+        }
+
+        private void List_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (List.SelectedItem == null) return;
+            TBSpecification.Text = (List.SelectedItem as Specification).SpecificationValue;
         }
     }
 }
